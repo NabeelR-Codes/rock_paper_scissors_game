@@ -6,14 +6,42 @@ function getComputerChoice(){
     let number = Math.floor(Math.random() * 100); // Reason I *100 cause math.random returns 0.*** numbers
     let tool;
     if (number < 33){   
-        tool = "Rock";
+        tool = "rock";
     } else if (number < 66){
-        tool = "Paper";
+        tool = "paper";
     } else {
-        tool = "Scissors";
+        tool = "scissors";
     }
     return tool;
+    console.log(number);
 }
-console.log(getComputerChoice());
+// console.log(getComputerChoice())
 
 
+// In this function I use a prompt function 
+// to ask the choice of the user and it is then printed in console.
+function getHumanChoice(){
+    let choice = prompt("What is your choice?");
+    return choice.toLowerCase();
+}
+// console.log(getHumanChoice());
+
+let humanScore = 0;
+let computerScore = 0;
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+function playRound(humanSelection, computerSelection){
+    if (humanSelection === "rock" && computerSelection === "paper"){
+        console.log("Computer WINS! Paper beats Rock!");
+        computerScore += 1;
+    } else if (humanSelection === "rock" && computerSelection === "scissors"){
+        console.log("You WON! Rock Beats Scissors");
+        humanScore += 1;
+    } else if (humanSelection === "rock" && computerSelection === "rock"){
+        console.log("TIE!");
+    } 
+}
+
+playRound(humanSelection,computerSelection);
+console.log(`Human: ${humanSelection} | Computer: ${computerSelection}`);
