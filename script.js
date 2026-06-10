@@ -31,17 +31,36 @@ let computerScore = 0;
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
+
+
 function playRound(humanSelection, computerSelection){
+        // rock
     if (humanSelection === "rock" && computerSelection === "paper"){
-        console.log("Computer WINS! Paper beats Rock!");
+        console.log("Computer WON!");
         computerScore += 1;
     } else if (humanSelection === "rock" && computerSelection === "scissors"){
-        console.log("You WON! Rock Beats Scissors");
+        console.log("You WON!");
         humanScore += 1;
-    } else if (humanSelection === "rock" && computerSelection === "rock"){
-        console.log("TIE!");
-    } 
+        //paper
+    } else if (humanSelection === "paper" && computerSelection === "rock"){
+        console.log("You WON!");
+        humanScore += 1;
+    } else if (humanSelection === "paper" && computerSelection === "scissors"){
+        console.log("Computer WON!");
+        computerScore += 1;
+        //scissors
+    } else if (humanSelection === "scissors" && computerSelection === "rock"){
+        console.log("Computer WON!");
+        computerScore += 1;
+    } else if (humanSelection === "scissors" && computerSelection === "paper"){
+        console.log("You WON!");
+        humanScore += 1;
+    } else {
+        console.log("TIE!")
+    }
 }
 
-playRound(humanSelection,computerSelection);
+
 console.log(`Human: ${humanSelection} | Computer: ${computerSelection}`);
+playRound(humanSelection,computerSelection);
+console.log(`Human: ${humanScore} | Computer: ${computerScore}`);
